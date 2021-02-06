@@ -1,0 +1,8 @@
+t_user ： 
+    id long
+    nickname string : 昵称
+    username string : 用户名
+    password string : 密码
+    email string : 用户邮箱
+    avatar string : 用户头像
+    type int ： 用户类型 //但是没有设计相关功能没啥用

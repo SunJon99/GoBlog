@@ -1,0 +1,4 @@
+t_type : 
+    id long
+    name string : 类型名称
+      

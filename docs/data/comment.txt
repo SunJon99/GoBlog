@@ -1,0 +1,10 @@
+t_comment:
+
+    id   Long
+    nickname  String  : 评论人的昵称
+    email  String : 评论人的email
+    avatar String ： 评论人的头像
+    create_time : 创建时间
+    blog_id Long : 博客ID
+    parent_comment_id : 父评论id
+    admincomment : 根评论id

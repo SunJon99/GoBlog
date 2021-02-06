@@ -1,0 +1,8 @@
+数据库设计
+
+博客表：            t_blog
+博客标签关系表：     t_blog_tags
+评论表：            t_comment
+标签表：            t_tag
+类型表：            t_type
+用户表:             t_user

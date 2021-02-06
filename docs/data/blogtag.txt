@@ -1,0 +1,4 @@
+t_blog_tags:
+    private Long id; 
+    private Long bID;  //博客ID
+    private Long tID;  //标签ID

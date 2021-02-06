@@ -1,0 +1,36 @@
+  
+t_blog :
+ 
+    private Long id;
+    //文章标题
+    private String title;
+    //文章内容
+    private String content;
+    //文章首图
+    private String firstPicture;
+    //转载/原创/翻译
+    private String flag;
+    //查看人数(默认为零)
+    private Long views;
+    //开启赞赏
+    private Long appreciation;
+    //转载声明 0/1
+    private Integer share;
+    //是否开启评论
+    private Integer commentable;
+    //是否发表
+    private Integer published;
+    //是否推荐
+    private Integer recommend;
+    //创建时间
+    private Date createTime;
+    //更新时间
+    private Date updateTime;
+    //文章类型
+    private Long type;
+    //文章作者
+    private Integer author;
+    //文章描述
+    private String description;
+
+    private String tags;
