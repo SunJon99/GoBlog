@@ -6,6 +6,6 @@ import (
 )
 
 func main() {
-	blog := loaders.LoadOneBlogByID(1)
+	blog := loaders.LoadAllBlogs()
 	fmt.Println(blog)
 }
