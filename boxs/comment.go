@@ -2,12 +2,9 @@ package boxs
 
 import (
 	"time"
-
-	"gorm.io/gorm"
 )
 
 type Comment struct {
-	gorm.Model
 	ID              uint64
 	NickName        string
 	Email           string

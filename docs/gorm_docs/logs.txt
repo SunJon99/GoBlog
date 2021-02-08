@@ -1,0 +1,53 @@
+1. 关于 Gorm 中的 gorm.Model:
+    在使用 ORM 工具时，通常需要在代码中定义模型（Models）
+    与数据库中的数据表进行映射，在 GORM 中模型通常是正常
+    定义的结构体、基本的 go 类型或他们的指针。同时也支持 
+    sql.Scanner（扫描）及 driver.Valuer（驱动）接口
+    （interfaces）。
+
+    为了方便模型定义，GORM 内置了一个 gorm.Model 结构体。
+    gorm.Model 是一个包含了ID，CreatedAt,UpdatedAt,
+    DeletedAt 四个字段的 Golang 结构体。
+
+    也就是说我们在定义模型的时候，可以完全自定义模型，也可以
+    将内置的 gorm.Model 嵌入到定义的模型中去。
+
+2. 关于 Gorm 中的约定：
+    - 使用 ID 作为主键 （默认情况下，GORM 使用 ID 作为表的
+        主键）
+
+        如何更改？
+            通过 primaryKey 将其他字段设置为主键。
+           ```Golang
+            type Animal struct {
+                ID uint32
+                UUID uint32 `gorm:"primaryKey"`
+                Name string
+            }
+           ``` 
+
+    - 复数表名
+
+    - 命名策略
+
+    - 列名
+        根据约定，数据表的列名使用的是 struct 字段名的
+        蛇形命名。
+        例如： 字段名为 Name 对应的列名为 Name
+              字段名为 CreateAt 对应的列名 create_at
+        
+        如果已经创建好的数据库中的相应列名不符合，可以
+        使用 column 标签或 命名策略 来覆盖列名
+
+        ``` Golang
+            type Animal struct {
+                ID uint32 `gorm:"column:animal_id"`
+                Name string `gorm:"column:animal_name"`
+            }
+        ```
+
+    - 时间戳追踪
+    
+
+
+        
