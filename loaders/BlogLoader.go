@@ -8,11 +8,13 @@ import (
 	"gorm.io/gorm"
 )
 
+var dsm_mysql string = "mybatis:MyBatis@55998@tcp(127.0.0.1:3306)/blog?charset=utf8mb4&parseTime=True&loc=Local"
+
 /*
 	通过 Blog 的 id 查找
 */
 func LoadOneBlogByID(id uint64) *Blog {
-	dsn := "mybatis:MyBatis@55998@tcp(127.0.0.1:3306)/blog?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn := dsm_mysql
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 		fmt.Println("连接失败！！")
@@ -28,7 +30,7 @@ func LoadOneBlogByID(id uint64) *Blog {
 	遍历所有 Blog 表中的 blog
 */
 func LoadAllBlogs() *[]Blog {
-	dsn := "mybatis:MyBatis@55998@tcp(127.0.0.1:3306)/blog?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn := dsm_mysql
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 		fmt.Println("连接失败！！")
