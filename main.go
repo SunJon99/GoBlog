@@ -1,12 +1,27 @@
 package main
 
 import (
-	loaders "GoBlog/loaders"
+	"GoBlog/boxs"
 	"fmt"
+	"html/template"
+	"net/http"
 )
 
 func main() {
+	mux := http.NewServeMux()
+	mux.HandleFunc("/", index)
+	fmt.Println("Listening")
+	server := &http.Server{
+		Addr:    "127.0.0.1:8080",
+		Handler: mux,
+	}
+	server.ListenAndServe()
+}
 
-	isDele := loaders.DelByID(12)
-	fmt.Println(isDele)
+func index(w http.ResponseWriter, r *http.Request) {
+	templates := template.Must(template.ParseFiles("templates/about.html"))
+
+	if err := templates.ExecuteTemplate(w, "about.html", boxs.Blog{}); err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
 }
