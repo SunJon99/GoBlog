@@ -1,6 +1,6 @@
 package boxs
 
 type Type struct {
-	ID   uint64
-	Name string
+	ID   uint64 `json:"id"`
+	Name string `json:"name"`
 }

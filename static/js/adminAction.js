@@ -14,16 +14,16 @@ function loadBlogs(){
             }else{
                 var x="";
                 document.getElementById("admin-blogs-table").innerHTML =  '';
-                for(var i = 0;i<myJson.info.length;i++){
+                for(var i = 0;i<myJson.length;i++){
                     x +="<tr>" +
-                        "<td>"+myJson.info[i].id+"</td>" +
-                        "<td>"+myJson.info[i].title+"</td>" +
-                        "<td>"+myJson.info[i].type+"</td>" +
-                        "<td>"+myJson.info[i].recommend+"</td>" +
-                        "<td>"+myJson.info[i].updateTime+"</td>" +
+                        "<td>"+myJson[i].id+"</td>" +
+                        "<td>"+myJson[i].title+"</td>" +
+                        "<td>"+myJson[i].type+"</td>" +
+                        "<td>"+myJson[i].recommend+"</td>" +
+                        "<td>"+myJson[i].updateTime+"</td>" +
                         "<td>" +
-                        "<button class=\"ui mini teal basic button btn_edit\" value=\""+ myJson.info[i].id +"\">编辑</button>" +
-                        "<button class=\"ui mini red basic button btn_del\" value=\""+myJson.info[i].id+"\">删除</button>" +
+                        "<button class=\"ui mini teal basic button btn_edit\" value=\""+ myJson[i].id +"\">编辑</button>" +
+                        "<button class=\"ui mini red basic button btn_del\" value=\""+myJson[i].id+"\">删除</button>" +
                         "</td>" +
                         "</tr>"
                 }
