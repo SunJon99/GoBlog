@@ -16,6 +16,7 @@ func main() {
 	//这个是测试的  about页面
 	mux.HandleFunc("/", handle.IndexHandle)
 	mux.HandleFunc("/admin", handle.AdminHandle)
+	mux.HandleFunc("/admin/edit", handle.EditHandle)
 	mux.HandleFunc("/info/blogs", handle.GetBlogsHandle)
 	fmt.Println("Listening")
 	server := &http.Server{

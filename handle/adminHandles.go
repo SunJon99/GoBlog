@@ -10,18 +10,22 @@ import (
 	"net/http"
 )
 
+// AdminHandle  用来处理获取后台首页请求
 func AdminHandle(w http.ResponseWriter, r *http.Request) {
 	templates := template.Must(template.ParseFiles("templates/admin/bolgs.html"))
 
 	if err := templates.ExecuteTemplate(w, "bolgs.html", nil); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
+		fmt.Println("模板解析出现错误！！")
+		fmt.Println(err)
+		return
 	}
 }
 
 //@Description 处理页面的blogs请求，返回数据库中所有的blog信息
 // 这里页面需要的信息只是 blog 中的 id，title，type，recommend，updatetime
 
-//@TODO 将数据查询出来的blog数据进行封装，并转换为JSON的数据形式，返回给客户端
+//GetBlogsHandle 将数据查询出来的blog数据进行封装，并转换为JSON的数据形式，返回给客户端
 func GetBlogsHandle(w http.ResponseWriter, r *http.Request) {
 	blogs, isLoad := loaders.LoadAllBlogs()
 	if isLoad == false {
@@ -54,5 +58,10 @@ func GetBlogsHandle(w http.ResponseWriter, r *http.Request) {
 	jsonString := string(data)
 	fmt.Println(jsonString)
 	w.Write([]byte(jsonString))
+
+}
+
+// EditHandle 用来响应用户编辑某个博客的请求
+func EditHandle(w http.ResponseWriter, r *http.Request) {
 
 }

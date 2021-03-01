@@ -5,6 +5,7 @@ import (
 	"net/http"
 )
 
+// IndexHandle 用来处理用户的首页请求
 func IndexHandle(w http.ResponseWriter, r *http.Request) {
 	templates := template.Must(template.ParseFiles("templates/about.html"))
 
