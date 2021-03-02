@@ -55,10 +55,7 @@ func GetBlogsHandle(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	jsonString := string(data)
-	fmt.Println(jsonString)
-	w.Write([]byte(jsonString))
-
+	w.Write(data)
 }
 
 // EditHandle 用来响应用户编辑某个博客的请求
