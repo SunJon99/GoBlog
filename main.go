@@ -6,7 +6,20 @@ import (
 	"net/http"
 )
 
+type test interface {
+	test() string
+	fuck()
+}
+
+type date struct{}
+
+func (date) test() string  { return "" }
+func (*date) test() string { return "" }
+func (date) fuck()         {}
 func main() {
+	var d date
+	var t test = d
+
 	mux := http.NewServeMux()
 
 	//静态文件服务
